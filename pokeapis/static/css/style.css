@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.bg-pokemon {
+    background: linear-gradient(135deg, #dc2e27 0%, #f7931e 100%);
+}
+
+.text-pokemon {
+    color: #dc2e27;
+    font-weight: bold;
+}
+
+.pokemon-card {
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    border: none;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0;
+}
+
+.card img {
+    image-rendering: -webkit-optimize-contrast;
+    transition: transform 0.2s ease;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* Colores por tipo */
+.badge-tipo-fire {
+    background-color: #f08030 !important;
+    color: white;
+}
+
+.badge-tipo-water {
+    background-color: #6890f0 !important;
+    color: white;
+}
+
+.badge-tipo-grass {
+    background-color: #78c850 !important;
+    color: white;
+}
+
+.badge-tipo-poison {
+    background-color: #a040a0 !important;
+    color: white;
+}
+
+.badge-tipo-flying {
+    background-color: #a890f0 !important;
+    color: white;
+}
+
+.badge-tipo-bug {
+    background-color: #a8b820 !important;
+    color: white;
+}
+
+.badge-tipo-normal {
+    background-color: #a8a878 !important;
+    color: white;
+}
+
+.badge-tipo-electric {
+    background-color: #f8d030 !important;
+    color: #333;
+}
+
+.badge-tipo-ground {
+    background-color: #e0c068 !important;
+    color: white;
+}
+
+.badge-tipo-rock {
+    background-color: #b8a038 !important;
+    color: white;
+}
+
+.badge-tipo-fighting {
+    background-color: #c03028 !important;
+    color: white;
+}
+
+.badge-tipo-psychic {
+    background-color: #f85888 !important;
+    color: white;
+}
+
+.badge-tipo-ghost {
+    background-color: #705898 !important;
+    color: white;
+}
+
+.badge-tipo-ice {
+    background-color: #98d8d8 !important;
+    color: #333;
+}
+
+.badge-tipo-dragon {
+    background-color: #7038f8 !important;
+    color: white;
+}
+
+/* Stats */
+.stat-bar {
+    padding: 10px 0;
+}
+
+.progress {
+    height: 25px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-top: auto;
+}
+
+footer a:hover {
+    text-decoration: underline !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+}

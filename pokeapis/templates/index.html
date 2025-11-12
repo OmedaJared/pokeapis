@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block titulo %}Buscar Pokémon{% endblock %}
+
+{% block contenido %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-pokemon text-white">
+                <h5 class="mb-0">🔍 Busca un Pokémon</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="pokemon_id"><strong>Selecciona:</strong></label>
+                        <select name="pokemon_id" id="pokemon_id" class="form-control">
+                            <option value="">-- Elige uno --</option>
+                            {% for p in pokemons %}
+                            <option value="{{p.name.lower()}}">{{p.id}} - {{p.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apodo"><strong>Dale un apodo (opcional):</strong></label>
+                        <input type="text" name="apodo" id="apodo" class="form-control" placeholder="Ej: Mi Charizard">
+                    </div>
+                    <button class="btn btn-success btn-block" type="submit">🔍 BUSCAR</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        {% if selected %}
+        <div class="card pokemon-card shadow-sm">
+            <div class="card-body text-center">
+                <h2 class="text-pokemon">{{selected.name}}</h2>
+                {% if nickname %}
+                <p class="badge badge-primary">Apodo: {{nickname}}</p>
+                {% endif %}
+                <img src="{{selected.image}}" alt="{{selected.name}}" class="img-fluid" style="max-width: 350px; height: auto;">
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <p><strong>ID:</strong> #{{selected.id}}</p>
+                        <p><strong>Altura:</strong> {{selected.height}} m</p>
+                        <p><strong>Peso:</strong> {{selected.weight}} kg</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Tipos:</strong></p>
+                        {% for tipo in selected.types %}
+                        <span class="badge badge-tipo-{{tipo.lower()}}">{{tipo}}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <h5 class="mt-4 mb-3">📊 Estadísticas</h5>
+                <div class="stats-container">
+                    {% for stat, valor in selected.stats.items() %}
+                    <div class="stat-bar mb-2">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span><strong>{{stat}}</strong></span>
+                            <span class="badge badge-info">{{valor}}</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{(valor * 100 / 200)|int}}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center shadow-sm">
+            <h5>👈 Selecciona un Pokémon para ver sus detalles</h5>
+            <p>Elige cualquier Pokémon de la lista</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

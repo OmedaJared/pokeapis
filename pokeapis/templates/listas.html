@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de Pokémon{% endblock %}
+
+{% block contenido %}
+<h2 class="text-center text-pokemon mb-4">📋 Lista de Pokémon (Gen I)</h2>
+
+<div class="row">
+    {% for pokemon in pokemons %}
+    <div class="col-md-4 col-sm-6 mb-4">
+        <a href="/pokemon/{{pokemon.name.lower()}}" class="text-decoration-none">
+            <div class="card pokemon-card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-pokemon">#{{pokemon.id}} - {{pokemon.name}}</h5>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png" 
+                         alt="{{pokemon.name}}" class="img-fluid" style="max-width: 150px;">
+                    <p class="text-muted mt-2">Haz clic para ver detalles</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
